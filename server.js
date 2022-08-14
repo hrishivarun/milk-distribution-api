@@ -16,6 +16,8 @@ mongoose.connect(connectionURL, {
 
 const app = express();
 
+
+app.use(express.static('./'));
 app.use(addOrder);
 app.use(updateDetails);
 app.use(updateStatus);
