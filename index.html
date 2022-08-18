@@ -10,30 +10,38 @@
     <p><strong>Max capacity of milk available for any day is 1000(in litres).
         The orders are also placed in litres.</strong></p>
 
+    <h2>All the routes currently accept only json data as request.</h2>
     <ul>
         <li>
             <h3>*/adds - Adds a new order with 'placed' status.</h3>
+            <p>POST request</p>
+            <p>The quantity of the order is mentioned in 'qunatity' field, of the request json sent to the server.</p>
             <p>1)The date, month, and year of the order can be provided as separate fields of 'Number' datatype., in the request json.</p>
             <p>2)In case date, month, and year are not provided, current date, the order is dated to current date.</p>
             <p>3)Doesn't add the order, if the quantity of order is more than the quantity left for that day.</p>
         </li>
         <br><br>
         <li>
-            <h3>*/update/:id - updates all the fields given in the json body of the request.</h3>
+            <h3>*/update/:id - updates all the fields given in the json body of the request, which can be quantity, date, month, and year of the order.</h3>
+            <p>PUT request</p>
             <p>1)Doesn't update the quantity of the order, if it is more than the current quantity plus left capacity for the date of the order.</p>
         </li>
         <br><br>
         <li>
             <h3>*/updateStatus/:id - updates the status of the order.</h3>
+            <p>PUT request</p>
+            <p>1)The status of a order can be 'placed', 'packed', 'dispatched', 'delivered'.</p>
         </li>
         <br><br>
         <li>
             <h3>*/delete/:id - deletes the order with the id given in the route.</h3>
+            <p>DELETE request</p>
             <p>1) If the deleted order hasn't been delivered at time of deletion, its quantity is added back to the capacity for the date of the order.</p>
         </li>
         <br><br>
         <li>
             <h3>*/checkCapacity/:date  - Checks for the available capacity for the given date.</h3>
+            <p>GET request</p>
             <p>1) The 'date' in route, is in 'ddmmyyyy' format.</p>
         </li>
     </ul>
