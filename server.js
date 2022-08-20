@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 
+const orders = require('./routes/orders');
 const addOrder = require('./routes/addOrder');
 const updateStatus = require('./routes/updateStatus');
 const updateDetails = require('./routes/updateDetails');
@@ -20,6 +21,7 @@ const app = express();
 app.get('/', (req, res) => {
     res.sendFile(__dirname+'/index.html');
 });
+app.use(orders);
 app.use(addOrder);
 app.use(updateDetails);
 app.use(updateStatus);
